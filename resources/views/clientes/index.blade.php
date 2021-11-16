@@ -6,10 +6,7 @@
 <div class="card border">
     <div class="card-body">
     <a href="/clientes/novo" class="btn btn-sm btn-primary" role="button">Novo Cliente</a>
-
-        <br>
-
-
+    <br>
 
 @if(count($clientes) > 0)
         <table class="table table-ordered table-hover" id="minhaTabela">
@@ -57,10 +54,21 @@
   <script>
   $(document).ready(function(){
       $('#minhaTabela').DataTable({
-        	"language": {
-                "zeroRecords": "Nada encontrado",
-                "infoEmpty": "Nenhum registro disponível",
+        "oLanguage": {
+            "sLengthMenu": "Mostrar _MENU_ registros por página",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sInfo": "Mostrando _START_ / _END_ de _TOTAL_ registro(s)",
+            "sInfoEmpty": "Mostrando 0 / 0 de 0 registros",
+            "sInfoFiltered": "(filtrado de _MAX_ registros)",
+            "sSearch": "Pesquisar: ",
+            "oPaginate": {
+                "sFirst": "Início",
+                "sPrevious": "Anterior",
+                "sNext": "Próximo",
+                "sLast": "Último"
             }
+        },
+
         });
   });
   </script>

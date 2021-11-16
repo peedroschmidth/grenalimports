@@ -11,10 +11,10 @@
 
                 <label for="nomeClube">Nome do Clube</label>
                 <input type="text" class="form-control" name="nomeClube" 
-                       id="nomeClube" placeholder="Clube">
+                       id="nomeClube" placeholder="Clube" required>
                     
                 <label for="ligaClube">Liga do Clube</label>
-                <select name="ligaClube" label="Selecione" id="ligaClube">
+                <select name="ligaClube" label="Selecione" id="ligaClube" required>
                 <option value="">Selecione uma Liga</option>
                 @foreach($liga as $l)
                     <option value="{{ $l->id }}">{{ $l->nomeLiga }}</option>

@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use chartjs;
 
 class DashboardController extends Controller
-{
+{   
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function dashboard(){
         $chartjs = app()->chartjs
         ->name('lineChartTest')

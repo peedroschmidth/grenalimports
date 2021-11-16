@@ -9,12 +9,12 @@
             <div class="form-group">
                 <label for="nomeFornecedor">Nome do Fornecedor</label>
                 <input type="text" class="form-control" name="nomeFornecedor" 
-                       id="nomeFornecedor" placeholder="Fornecedor">
+                       id="nomeFornecedor" placeholder="Fornecedor" required>
             </div>            
             <div class="form-group">
                 <label for="contatoFornecedor">Contato do Fornecedor</label>
                 <input type="text" class="form-control" name="contatoFornecedor" 
-                       id="contatoFornecedor" placeholder="Contato">
+                       id="contatoFornecedor" placeholder="Contato" required>
             </div>
 
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>

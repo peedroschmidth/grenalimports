@@ -40,10 +40,9 @@ class LigaController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            'nomeLiga'  => 'required|unique:ligas',
+            'nomeLiga'  => 'unique:ligas',
         ];
         $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.',  // Generico
             'unique' => 'Já existe esta liga cadastrada.'
         ];
 
@@ -90,14 +89,7 @@ class LigaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $regras = [
-            'nomeLiga'  => ['required'],
-        ];
-        $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.'
-        ];
 
-        $request->validate($regras, $mensagens);
 
         $liga = Liga::find($id);
         

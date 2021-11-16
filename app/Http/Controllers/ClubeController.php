@@ -42,16 +42,6 @@ class ClubeController extends Controller
      */
     public function store(Request $request)
     {
-        $regras = [
-            'nomeClube'  => 'required',
-            'ligaClube' => 'required'
-        ];
-        $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.'
-        ];
-
-        $request->validate($regras, $mensagens);
-
         $clube = new Clube();
         $clube->nome = $request->input('nomeClube');
         $clube->liga_id = $request->input('ligaClube');
@@ -124,6 +114,7 @@ class ClubeController extends Controller
      */
     public function destroy($id)
     {
+        
         $clube = Clube::find($id);
         if (isset($clube)){
             $clube->delete();

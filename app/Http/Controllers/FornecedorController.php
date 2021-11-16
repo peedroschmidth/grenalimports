@@ -42,11 +42,9 @@ class FornecedorController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            'nomeFornecedor'  => 'required|unique:fornecedors,nome',
-            'contatoFornecedor' =>'required'
+            'nomeFornecedor'  => 'unique:fornecedors,nome',
         ];
         $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.',  // Generico
             'unique' => 'Já existe este fornecedor cadastrado.'
         ];
 
@@ -94,15 +92,7 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $regras = [
-            'nomeFornecedor'  => 'required',
-            'contatoFornecedor' =>'required'
-        ];
-        $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.',  // Generico
-        ];
 
-        $request->validate($regras, $mensagens);
 
         $fornecedor = Fornecedor::find($id);
         

@@ -32,7 +32,7 @@
 
 
 @if(count($pag) > 0)
-        <table class="table table-ordered table-hover">
+        <table class="table table-ordered table-hover" id="minhaTabela">
             <thead>
                 <tr>
                     <th>Código</th>
@@ -50,7 +50,7 @@
                 <tr>
                     <td>{{$p->id}}</td>
                     <td>{{$p->descricao}}</td>
-                    <td>{{$p->valor}}</td>
+                    <td>R$ {{$p->valor}}</td>
                     <td @if ($p->tipo=="E") class="circulo" @endif class="circulo2" > {{$p->tipo}}</td>
                     <td>
                         @isset($p->venda->cliente->nome) 
@@ -88,7 +88,6 @@
 
 @endsection
 
-
 <script>
 function mostraDiv(adicionarContabilidade) {
         var display = document.getElementById(adicionarContabilidade).style.display;
@@ -99,4 +98,6 @@ function mostraDiv(adicionarContabilidade) {
             document.getElementById(adicionarContabilidade).style.display = 'none';
         }
 }
+
+
 </script>

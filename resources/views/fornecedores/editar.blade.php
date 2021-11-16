@@ -9,12 +9,12 @@
             <div class="form-group">
                 <label for="nomeFornecedor">Nome da Liga</label>
                 <input type="text" class="form-control" name="nomeFornecedor" 
-                       id="nomeFornecedor" placeholder="Fornecedor" value="{{$fornecedor->nome}}">
+                       id="nomeFornecedor" placeholder="Fornecedor" value="{{$fornecedor->nome}}" required>
             </div>
             <div class="form-group">
                 <label for="contatoFornecedor">Nome da Liga</label>
                 <input type="text" class="form-control" name="contatoFornecedor" 
-                       id="contatoFornecedor" placeholder="Contato" value="{{$fornecedor->contato}}">
+                       id="contatoFornecedor" placeholder="Contato" value="{{$fornecedor->contato}}" required>
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
             <a class="btn btn-danger btn-sm" href="/fornecedores">Cancelar</a>

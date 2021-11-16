@@ -19,7 +19,7 @@
     </form>
     
 @if(count($vendas) > 0)
-        <table class="table table-ordered table-hover">
+        <table class="table table-ordered table-hover" id="minhaTabela2">
             <thead>
                 <tr>
                     <th>Código</th>
@@ -58,5 +58,28 @@
         {{$vendas->links()}}
     </div>
 </div>
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $('#minhaTabela2').DataTable({
+        "oLanguage": {
+            "sLengthMenu": "Mostrar _MENU_ registros por página",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sInfo": "Mostrando _START_ / _END_ de _TOTAL_ registro(s)",
+            "sInfoEmpty": "Mostrando 0 / 0 de 0 registros",
+            "sInfoFiltered": "(filtrado de _MAX_ registros)",
+            "sSearch": "Pesquisar: ",
+            "oPaginate": {
+                "sFirst": "Início",
+                "sPrevious": "Anterior",
+                "sNext": "Próximo",
+                "sLast": "Último"
+            }
+        },
 
+        });
+  });
+  </script>
+  
 @endsection
