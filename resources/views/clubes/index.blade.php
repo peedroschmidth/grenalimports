@@ -31,7 +31,9 @@
     @endforeach                
             </tbody>
         </table>
-@endif        
+@else
+    <h4>Você não possuí ligas cadastradas, comece cadastrando uma!</h4> 
+@endif   
     </div>
     <div class="card-footer">
         {{$clubes->links()}}
