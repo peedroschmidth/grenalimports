@@ -10,6 +10,7 @@
         "blade-ui-kit/blade-heroicons": "^1.2",
         "codeat3/blade-uiw-icons": "^1.1",
         "fruitcake/laravel-cors": "^2.0",
+        "fx3costa/laravelchartjs": "^2.8",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",

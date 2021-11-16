@@ -185,4 +185,6 @@ class ContabilidadeController extends Controller
         }
         return redirect('/contabilidade');
     }
+
+
 }

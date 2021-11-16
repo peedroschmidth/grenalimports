@@ -22,7 +22,6 @@
     <input type="radio" id="todos" name="tipo" value="todos" checked> <label for="todos"> Todos</label>
     <input type="radio" id="entradas" name="tipo" value="entradas"> <label for="entradas">Entradas</label>
     <input type="radio"  id="saidas" name="tipo" value="saidas" > <label for="saidas">Saídas</label>
-
     <button type="submit" class="btn btn-sm btn-primary">Gerar Relatório</button>
 </form>
 
@@ -79,7 +78,7 @@
             </tbody>
         </table>
 @else
-<h4>Você não possuí contabilidades!</h4>
+<h4> Você não possuí contabilidades!</h4>
 @endif   
     </div>
     <div class="card-footer">

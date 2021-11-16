@@ -16,8 +16,14 @@ $saidas = 0;
         tr{
             border: 1px solid black;
         }
+        img{
+            width:70px;
+            float: right;
+        }
     </style>
     <body>
+    <img src="https://i.ibb.co/bKMTnxg/C-pia-de-1623463367144-3.png" alt="Imagem" border="0"><br>
+
         <h1>Grenal Imports - Relatório de Contabilidades</h1>
         <h3>Data: De {{$dataIni}} à {{$dataFim}}</h3>
         <table class="table table-ordered" style="border: 1px solid black" align="center">

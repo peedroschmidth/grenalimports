@@ -10,6 +10,8 @@ use App\Models\Cor;
 use App\Models\Descricao;
 use App\Models\Tamanho;
 use App\Models\Pagamento;
+use PDF;
+use DB;
 
 class VendaController extends Controller
 {
@@ -268,4 +270,38 @@ class VendaController extends Controller
         }
         return redirect('/vendas');
     }
+
+    public function relatorio(Request $request){
+        
+        $req = $request->all();
+        $tipo = Request()->get('tipo');
+
+        $dataIni = $request->input('dataInicio');
+        $dataFim = $request->input('dataFim');
+
+        if($tipo=="finalizadas"){
+            $vendas = DB::table('vendas')
+            ->where('created_at', '>=', [$dataIni])
+            ->where('created_at', '<=', [$dataFim])
+            ->where('status','=','F')->get();
+        }
+        else if($tipo == "pendentes"){
+            $vendas = DB::table('vendas')
+            ->where('created_at', '>=', [$dataIni])
+            ->where('created_at', '<=', [$dataFim])
+            ->where('status','=', 'P')->get();
+
+    
+            }
+        else if($tipo=="todos"){
+            $vendas = DB::table('vendas')
+            ->where('created_at', '>=', [$dataIni])
+            ->where('created_at', '<=', [$dataFim])->get();
+
+        }
+        $pdf = PDF::loadView('vendas.relatorio', compact('vendas','dataIni','dataFim'));
+        
+        return $pdf->setPaper('a4')->stream('ContabilidadesVendas.pdf');
+    }
+
 }

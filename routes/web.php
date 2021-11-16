@@ -12,6 +12,7 @@ use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\ContabilidadeController;
 use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
 //Ligas
@@ -57,6 +58,8 @@ Route::post('/vendas', [VendaController::class, 'store']);
 Route::get('/vendasAberto', [VendaController::class, 'vendasAberto']);
 Route::get('/vendasFinalizadas', [VendaController::class, 'vendasFinalizadas']);
 Route::get('/vendasPendentes', [VendaController::class, 'vendasPendentes']);
+Route::post('/vendasRelatorio', [VendaController::class, 'relatorio']);
+
 
 //Encomendas
 Route::get('/encomendas',[EncomendaController::class,'index']);
@@ -75,7 +78,7 @@ Route::get('/encomendas/recebidas',[EncomendaController::class,'encomendasRecebi
 //alterar o nome dos métdos, colocar encomendas/aguardando, vendas/finalizadas... etc
 
 //Dashboard
-Route::view('/dashboard', 'dashboard.dashboard');
+Route::get('/dashboard', [DashboardController::class,'dashboard']);
 
 //Estoque
 Route::get('/estoque',[EstoqueController::class,'index']);
@@ -103,3 +106,4 @@ Auth::routes();
 Route::get('/logout', [LoginController::class,'logout']);
 
 //Route::get('/home', [HomeController::class, 'index'])->name('home');
+
