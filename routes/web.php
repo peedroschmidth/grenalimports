@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\LigaController; 
-use app\Http\Controllers\ClubeController; 
-use app\Http\Controllers\FornecedorController; 
-use app\Http\Controllers\ClienteController;
-use app\Http\Controllers\VendaController;
-use app\Http\Controllers\IndexController;
-use app\Http\Controllers\EncomendaController;
-use app\Http\Controllers\EstoqueController;
-use app\Http\Controllers\ContabilidadeController;
-use app\Http\Controllers\HomeController;
-use app\Http\Controllers\Auth\LoginController;
-use app\Http\Controllers\DashboardController;
+use App\Http\Controllers\LigaController; 
+use App\Http\Controllers\ClubeController; 
+use App\Http\Controllers\FornecedorController; 
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\VendaController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\EncomendaController;
+use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\ContabilidadeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DashboardController;
 
 
 //Ligas
