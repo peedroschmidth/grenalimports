@@ -18,7 +18,6 @@
                     <th>Tamanho</th>
                     <th>Personalização</th>
                     <th>Clube</th>
-                    <th>Valor Sinal</th>
                     <th>Valor Pago</th>
                     <th>Valor Total</th>
                     <th>Ações</th>
@@ -33,7 +32,6 @@
                     <td>{{$v->produto->tamanho->tamanho}}</td>
                     <td>{{$v->produto->personalizacao}}</td>
                     <td>{{$v->produto->clube->nome}}</td>
-                    <td>{{$v->valor_sinal}}</td>
                     <td>{{$v->valor_pago}}</td>
                     <td>{{$v->valor_total}}</td>
                     <td>
