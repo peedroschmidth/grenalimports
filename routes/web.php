@@ -11,7 +11,7 @@ use App\Http\Controllers\EncomendaController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\ContabilidadeController;
 use App\Http\Controllers\HomeController;
-use \App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 
 
