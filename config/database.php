@@ -32,7 +32,10 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'engine' => 'InnoDB ROW_FORMAT=DYNAMIC',
+    
     'connections' => [
 
         'sqlite' => [
