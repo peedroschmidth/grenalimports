@@ -40,8 +40,8 @@ echo "<form action='/encomendas' method='POST'>".
             foreach($result as $res){
                 echo "<tr>";
                 echo "<td><input type='checkbox' checked style='display: none;' id ='$res->id' value='$res->id' name='$res->id' >".$res->id."</input></td>";
-                echo "<td>".$res->valor_sinal."</td>";
-                echo "<td>".$res->valor_total."</td>";
+                echo "<td>R$ ".number_format($res->valor_sinal,2,",",".")."</td>";
+                echo "<td>R$ ".number_format($res->valor_total,2,",",".")."</td>";
                 $cliente = DB::select('select * from clientes where id=?', [$res->cliente_id]);
                 $produto = DB::select('select * from produtos where id=?', [$res->produto_id]);
                 foreach($cliente as $cli){{

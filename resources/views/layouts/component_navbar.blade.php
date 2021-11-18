@@ -5,7 +5,7 @@
       </a>
     </div>
     <ul class="nav navbar-nav">
-        <li @if($current=="home") class="active" @endif><a href="/">Ínicio</a></li>
+        <li @if($current=="home") class="active" @endif><a href="/">Início</a></li>
         <li @if($current=="vendas") class="active" @endif class="dropdown" >
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Vendas</span> <span class="caret"></span></a>
             <ul class="dropdown-menu">

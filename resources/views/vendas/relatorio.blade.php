@@ -30,10 +30,10 @@
         <h3>Data: De {{$dataIni}} à {{$dataFim}}</h3>
         
         <h5>Total de vendas: {{$total}}</h5>
-        <h5>Total a receber: R$ {{$totalReceber}}</h5>
-        <h5>Total recebido: R$ {{$totalRecebido}}</h5>
-        <h5>Total em haver: R$ {{$haver}}</h5>
-        
+        <h5>Total a receber: R$ {{number_format($totalReceber,2,",",".")}}</h5>
+        <h5>Total recebido: R$ {{number_format($totalRecebido,2,",",".")}}</h5>
+        <h5>Total em haver: R$ {{number_format($haver,2,",",".")}}</h5>
+
         
         @foreach($vendas as $v)
 
@@ -79,8 +79,9 @@
                         echo "<td>".$prod[0]->personalizacao."</td>";
                         echo "<td>".$descricao[0]->descricao."</td>";    
                         echo "<td>".$cor[0]->cor."</td>";
-                        echo "<td>".$tamanho[0]->tamanho."</td>";    
-                        echo "<td>$v->created_at</td>";
+                        echo "<td>".$tamanho[0]->tamanho."</td>"; 
+                        $date=date_create($v->created_at);  
+                        echo "<td>".date_format($date,"d/m/Y")."</td>";
 
                     ?>
                 </tr>
@@ -90,9 +91,9 @@
                        
             <thead>
                 <tr>
-                    <th>Valor Pago:</th> <th>R$ {{$v->valor_pago}} </th>
-                    <th>Valor Total:</th> <th>R$ {{$v->valor_total}} </th>
-                    <th style="color:red">Valor Restante:</th> <th style="color: red">R$ {{$v->valor_total - $v->valor_pago}}</th>
+                    <th>Valor Pago:</th> <th>R$ {{number_format($v->valor_pago,2,",",".")}} </th>
+                    <th>Valor Total:</th> <th>R$ {{number_format($v->valor_total,2,",",".")}} </th>
+                    <th style="color:red">Valor Restante:</th> <th style="color: red">R$ {{number_format($v->valor_total - $v->valor_pago,2,",",".")}}</th>
                 </tr>
                     </thead>
 
@@ -102,9 +103,12 @@
                     </tr>
             </thead>
             @foreach($pag as $p)
+            <?php
+                $date=date_create($p->created_at);
+            ?>
                 <tr width="100%">
-                    <td><b>Data:</b></td> <td>{{$p->created_at}}</td>
-                    <td><b>Valor:</b></td> <td>R$ {{$p->valor}}</td>
+                    <td><b>Data:</b></td> <td>{{date_format($date,"d/m/Y")}}</td>
+                    <td><b>Valor:</b></td> <td>R$ {{number_format($p->valor,2,",",".")}}</td>
                     <td><b>Descrição:</b></td> <td> {{$p->descricao}}</td>
                 </tr>
             @endforeach

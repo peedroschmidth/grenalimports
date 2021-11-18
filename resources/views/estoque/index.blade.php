@@ -39,6 +39,8 @@
     @endforeach                
             </tbody>
         </table>
+@else
+<h5> Não há itens em estoque!</h5>
 @endif        
     </div>
     <div class="card-footer">

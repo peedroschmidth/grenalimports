@@ -8,27 +8,27 @@
             @csrf
             <div class="form-group">
                 <label for="nomeCliente">Nome do Cliente</label>
-                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Nome">
+                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Nome" required>
 
                 <label for="apelidoCliente">Apelido</label>
                 <input type="text" class="form-control" name="apelidoCliente" id="apelidoCliente" placeholder="Apelido">
 
                 <label for="emailCliente">E-mail</label>
-                <input type="mail" class="form-control" name="emailCliente" id="emailCliente" placeholder="E-mail">
+                <input type="mail" class="form-control" name="emailCliente" id="emailCliente" placeholder="E-mail" required>
 
                 <label for="telefoneCliente">Telefone</label>
-                <input type="text" class="form-control" name="telefoneCliente" id="telefoneCliente" placeholder="Telefone">
+                <input type="text" class="form-control" name="telefoneCliente" id="telefoneCliente" placeholder="Telefone" required>
 
                 <label for="enderecoCliente">Endereço</label>
-                <input type="text" class="form-control" name="enderecoCliente" id="enderecoCliente" placeholder="Rua da Figuera,30">
+                <input type="text" class="form-control" name="enderecoCliente" id="enderecoCliente" placeholder="Rua da Figuera,30" required>
 
                 <label for="cidadeCliente">Cidade</label>
-                <input type="text" class="form-control" name="cidadeCliente" id="cidadeCliente" placeholder="Cidade">
+                <input type="text" class="form-control" name="cidadeCliente" id="cidadeCliente" placeholder="Cidade" required>
 
                 <label for="estadoCliente">Estado</label>
                 <br>
-                <select name="estadoCliente" label="Selecione">
-                    <option>Selecione o estado</option>
+                <select name="estadoCliente" label="Selecione" required>
+                    <option value="">Selecione o estado</option>
                     <option value="AC">AC</option>
                     <option value="AL">AL</option>
                     <option value="AP">AP</option>

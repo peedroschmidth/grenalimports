@@ -1,5 +1,12 @@
 <?php
 $fornecedores = DB::select('select * from fornecedors');
+        
+$clientes = DB::table('clientes')
+->join('vendas','vendas.cliente_id','=','clientes.id')
+->where('vendas.status','=', 'A')
+->select('clientes.*')
+->groupBy('clientes.id');
+
 ?>
 
 @if(count($vendas) > 0)
@@ -30,7 +37,7 @@ $fornecedores = DB::select('select * from fornecedors');
             <td>{{$v->produto->cor->cor}}</td>
             <td>{{$v->produto->personalizacao}}</td>
             <td>{{$v->produto->clube->nome}}</td>
-            <td>{{number_format($v->valor_sinal,2,",",".")}}</td>
+            <td>R$ {{number_format($v->valor_sinal,2,",",".")}}</td>
         </tr>
 @endforeach
         </tbody>

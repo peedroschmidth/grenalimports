@@ -110,7 +110,7 @@ class EncomendaController extends Controller
             $encomenda->save();
 
             $pag = new Pagamento();
-            $pag->descricao = "Diferença Pedido";
+            $pag->descricao = "Encomenda - Diferença";
             $pag->valor = $valorPedido;
             $pag->encomenda_id = $encomenda->id;
             $pag->tipo = "S";
@@ -133,7 +133,7 @@ class EncomendaController extends Controller
 
 
         $pag = new Pagamento();
-        $pag->descricao = "Encomenda Pedido";
+        $pag->descricao = "Encomenda - Pedido";
         $pag->valor = $request->input('valorEncomenda');
         $pag->encomenda_id = $encomenda->id;
         $pag->tipo = "S";

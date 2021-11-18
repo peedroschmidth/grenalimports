@@ -26,7 +26,7 @@ echo "<tbody><tr>";
     echo "<td>".$encomenda['id'];
     echo "</td><td>".$encomenda['rastreio'];
     echo "</td><td>".$encomenda['codigo_encomenda'];
-    echo "</td><td>".$encomenda['valor_encomenda'];
+    echo "</td><td>R$ ". number_format($encomenda['valor_encomenda'],2,",",".");
     echo "</td><td>".$encomenda['status'];
     echo"</td><td>";
     foreach($fornecedor as $f){

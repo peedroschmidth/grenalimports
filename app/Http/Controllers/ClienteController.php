@@ -42,14 +42,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $regras = [
-            'nomeCliente'  => 'required',
-        ];
-        $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.'
-        ];
 
-        $request->validate($regras, $mensagens);
 
         $cliente = new Cliente();
         $cliente->nome = $request->input('nomeCliente');
@@ -103,13 +96,6 @@ class ClienteController extends Controller
         $cliente = Cliente::find($id);
         if(isset($cliente)){
 
-            $regras = [
-                'nomeCliente'  => 'required',
-            ];
-            $mensagens = [ 
-                'required' => 'O atributo :attribute não pode estar em branco.'
-            ];
-
             $cliente->nome = $request->input('nomeCliente');
             $cliente->apelido = $request->input('apelidoCliente');
             $cliente->email = $request->input('emailCliente');
@@ -138,17 +124,5 @@ class ClienteController extends Controller
         return redirect('/clientes');
     }
 
-    public function search(Request $request){
-        $clientes = $this->search($request->filter);
-        return view('clientes.index',compact('clientes'));
-    }
-    
-    public function teste(){
 
-        $cliente = Cliente::all();
-        $pdf = PDF::loadView('clientes.pdf',compact('cliente'));
-        
-        return $pdf->setPaper('a4')->stream('Tds_clientes.pdf');
-
-    }
 }
