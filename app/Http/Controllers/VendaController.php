@@ -66,27 +66,11 @@ class VendaController extends Controller
      */
     public function store(Request $request)
     {
-
         $cli = $request->input('clienteProduto');
         $gen = Request()->get('generoProduto');
         $est = $request->input('estoque');
-        
-        $regras = [
-            'descricaoProduto'  => 'required',
-            'clubeProduto' => 'required',
-            'generoProduto' => 'required',
-            'corProduto' =>'required',
-            'anoProduto' => 'required',
-            'tamanhoProduto' => 'required',
-            'valorTotal' => 'required',
-
-        ];
-        $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.'
-        ];
-
-        $request->validate($regras, $mensagens);
-
+        $req = $request->all();
+       
         $produto = new Produto();
 
         if($gen=="masculino"){
@@ -113,12 +97,14 @@ class VendaController extends Controller
 
         $produto->save();
 
+     
+        
         $venda = new Venda();
         $venda->produto_id = $produto->id;
         $venda->cliente_id = $cli;
-        $venda->valor_total = $request->input('valorTotal');
-        $venda->valor_sinal = $request->input('valorSinal');
-        $venda->valor_pago = $request->input('valorSinal');
+        $venda->valor_total = number_format($request->input('valorTotal'),2,'.', '');
+        $venda->valor_sinal = number_format($request->input('valorSinal'),2,'.', '');
+        $venda->valor_pago = number_format($request->input('valorSinal'),2,'.', '');
         //$venda->encomenda_id = NULL;
         $venda->save();
 
@@ -183,20 +169,6 @@ class VendaController extends Controller
         $gen = Request()->get('generoProduto');
         $est = $request->input('estoque');
 
-        $regras = [
-            'descricaoProduto'  => 'required',
-            'clubeProduto' => 'required',
-            'generoProduto' => 'required',
-            'corProduto' =>'required',
-            'anoProduto' => 'required',
-            'tamanhoProduto' => 'required',
-            'clienteProduto' => 'required',
-            'valorTotal' => 'required',
-
-        ];
-        $mensagens = [ 
-            'required' => 'O atributo :attribute não pode estar em branco.'
-        ];
 
         $request->validate($regras, $mensagens);
 
@@ -244,9 +216,9 @@ class VendaController extends Controller
 
             $venda->produto_id = $produto->id;
             $venda->cliente_id = $clienteNovo;
-            $venda->valor_total = $request->input('valorTotal');
-            $venda->valor_sinal = $request->input('valorSinal');
-            $venda->valor_pago = $request->input('valorSinal');
+            $venda->valor_total = number_format($request->input('valorTotal'),2,'.', '');
+            $venda->valor_sinal = number_format($request->input('valorSinal'),2,'.', '');
+            $venda->valor_pago = number_format($request->input('valorSinal'),2,'.', '');
             //$venda->encomenda_id = NULL;
             $venda->save();
     

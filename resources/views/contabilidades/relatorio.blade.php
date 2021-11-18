@@ -8,6 +8,7 @@ $saidas = 0;
             $saidas = $saidas + $c->valor;
         }
     }
+    $lucro = $entradas - $saidas;
 ?>
 
 <html>
@@ -43,7 +44,7 @@ $saidas = 0;
                 <tr align="center" >
                 <td>{{$c->id}}</td>
                     <td>{{$c->descricao}}</td>
-                    <td>{{$c->valor}}</td>
+                    <td>R$ {{number_format($c->valor,2,",",".")}}</td>
                     <td @if ($c->tipo=="E") class="circulo" @endif class="circulo2" > {{$c->tipo}}</td>
                     @isset($c->venda_id) 
                         <?php 
@@ -75,9 +76,13 @@ $saidas = 0;
         </table>
 <table>
 <tr>
-                <td><b>Total Entradas:</b> {{$entradas}} </td>
-                <td><b>Total Saídas:</b> {{$saidas}} </td>
-                <td><b>Lucro:</b> {{$entradas - $saidas}}</td>
+    <td><b>Entradas:</b> R$ {{number_format($entradas,2,",",".")}} </td>
+</tr>
+<tr>
+    <td><b>Saídas:</b> R$ {{number_format($saidas,2,",",".")}} </td>
+</tr>
+<tr>
+    <td><b>Lucro:</b> R$ {{number_format($lucro,2,",",".")}} </td>
 </tr>
 </table>
     </body>

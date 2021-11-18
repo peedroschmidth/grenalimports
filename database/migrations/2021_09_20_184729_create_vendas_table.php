@@ -21,8 +21,8 @@ class CreateVendasTable extends Migration
             $table->double('valor_pago')->nullable()->default(0);
             $table->integer('produto_id')->unsigned();
             $table->foreign('produto_id')->references('id')->on('produtos');
-            $table->integer('cliente_id')->unsigned();
-            $table->foreign('cliente_id')->references('id')->on('clientes')->default(1);
+            $table->integer('cliente_id')->unsigned()->default(1);
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->integer('encomenda_id')->unsigned()->nullable();
             $table->foreign('encomenda_id')->references('id')->on('encomendas');
             $table->timestamps();

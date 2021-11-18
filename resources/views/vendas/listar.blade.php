@@ -23,14 +23,14 @@ $fornecedores = DB::select('select * from fornecedors');
         <tbody>
 @foreach($vendas as $v)
         <tr>
-            <td><input type="checkbox" value="{{$v->valor_total}}" id="{{$v->id}}" name="{{$v->id}}" class="valores" > {{$v->id}}</input></td> 
+            <td><input type="checkbox" value="{{$v->valor_total}}" id="{{$v->id}}" name="{{$v->id}}" class="valores" ></input></td> 
             <td>{{$v->cliente->nome}}</td>
             <td>{{$v->produto->descricao->descricao}}</td>
             <td>{{$v->produto->tamanho->tamanho}}</td>
             <td>{{$v->produto->cor->cor}}</td>
             <td>{{$v->produto->personalizacao}}</td>
             <td>{{$v->produto->clube->nome}}</td>
-            <td>{{$v->valor_sinal}}</td>
+            <td>{{number_format($v->valor_sinal,2,",",".")}}</td>
         </tr>
 @endforeach
         </tbody>

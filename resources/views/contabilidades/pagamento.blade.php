@@ -36,7 +36,7 @@ $valorRestante = $venda->valor_total - $venda->valor_pago;
     @foreach($pag as $p)
         <tr>
             <td><b>Data:</b> {{$p->created_at}}</td>
-            <td><b>Valor:</b> R$ {{$p->valor}}</td>
+            <td><b>Valor:</b> R$ {{number_format($p->valor,2,",",".")}}</td>
             <td><b>Descrição:</b> {{$p->descricao}}</td>
         </tr>
     @endforeach

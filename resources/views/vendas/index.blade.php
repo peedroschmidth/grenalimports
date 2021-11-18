@@ -42,8 +42,8 @@
                     <td>{{$v->produto->tamanho->tamanho}}</td>
                     <td>{{$v->produto->personalizacao}}</td>
                     <td>{{$v->produto->clube->nome}}</td>
-                    <td>R$ {{$v->valor_pago}}</td>
-                    <td>R$ {{$v->valor_total}}</td>
+                    <td>R$ {{number_format($v->valor_pago,2,",",".")}}</td>
+                    <td>R$ {{number_format($v->valor_total,2,",",".")}}</td>
                     <td>
                         <a href="/vendas/editar/{{$v->id}}" class="btn btn-sm btn-primary">Detalhar</a>
                         <a href="/vendas/apagar/{{$v->id}}" class="btn btn-sm btn-danger">Apagar</a>

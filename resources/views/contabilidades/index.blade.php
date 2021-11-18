@@ -50,7 +50,7 @@
                 <tr>
                     <td>{{$p->id}}</td>
                     <td>{{$p->descricao}}</td>
-                    <td>R$ {{$p->valor}}</td>
+                    <td>R$ {{number_format($p->valor,2,",",".")}}</td>
                     <td @if ($p->tipo=="E") class="circulo" @endif class="circulo2" > {{$p->tipo}}</td>
                     <td>
                         @isset($p->venda->cliente->nome) 

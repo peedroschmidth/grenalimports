@@ -21,7 +21,7 @@
             <tr> 
                     <td>
             <label for="descricaoProduto">Descrição</label>
-                <select name="descricaoProduto" id="descricaoProduto" label="selecione" class="selectpicker">
+                <select name="descricaoProduto" id="descricaoProduto" label="selecione" class="selectpicker" required>
                 <option value="">Selecione</option>
                 @foreach($descricao as $d)
                 <option @if ($venda->produto->descricao_id == $d->id) selected value="{{$d->id}}" @endif value="{{$d->id}}">
@@ -50,7 +50,7 @@
 <tr>
     <td>
                 <label for="clubeProduto">Clube: </label>
-                <select name="clubeProduto" id="clubeProduto" label="selecione" >
+                <select name="clubeProduto" id="clubeProduto" label="selecione" required>
                 <option value="">Selecione</option>
                 @foreach($clube as $c)
                     <option @if ($venda->produto->clube_id == $c->id) selected value="{{$c->id}}" @endif value="{{$c->id}}">
@@ -70,7 +70,7 @@
 
 
                 <label for="corProduto">Cor: </label>
-                <select name="corProduto" id="corProduto" label="selecione" >
+                <select name="corProduto" id="corProduto" label="selecione"  required>
                 <option value="">Selecione</option>
                 @foreach($cor as $c)
                     <option @if ($venda->produto->cor_id == $c->id) selected value="{{$c->id}}" @endif value="{{$c->id}}">
@@ -81,11 +81,11 @@
 
                 <br>
                 <label for="anoProduto">Ano</label>
-                <input type="number" min="1900" max="3000"step="1" value="2021" id="anoProduto" name="anoProduto">
+                <input type="number" min="1900" max="3000"step="1" value="2021" id="anoProduto" name="anoProduto" required>
                 <br>
 
                 <label for="tamanhoProduto">Tamanho: </label>
-                <select name="tamanhoProduto" id="tamanhoProduto" label="selecione" >
+                <select name="tamanhoProduto" id="tamanhoProduto" label="selecione"  required>
                 <option value="">Selecione</option>
                 @foreach($tamanho as $t)
                     <option @if ($venda->produto->tamanho_id == $t->id) selected value="{{$t->id}}" @endif value="{{$t->id}}">

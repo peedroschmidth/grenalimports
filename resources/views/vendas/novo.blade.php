@@ -12,7 +12,7 @@
                 <tr> 
                     <td>
                         <label for="descricaoProduto">Descrição</label>
-                        <select name="descricaoProduto" id="descricaoProduto" label="selecione" class="selectpicker">
+                        <select name="descricaoProduto" id="descricaoProduto" label="selecione" class="selectpicker" required>
                             <option value="">Selecione</option>
                             @foreach($descricao as $d)
                             <option value="{{ $d->id }}">{{ $d->descricao }}</option>
@@ -40,7 +40,7 @@
                 <tr>
                     <td>
                         <label for="clubeProduto">Clube: </label>
-                        <select name="clubeProduto" id="clubeProduto" label="selecione" class="selectpicker">
+                        <select name="clubeProduto" id="clubeProduto" label="selecione" class="selectpicker"  required>
                             <option value="">Selecione</option>
                             @foreach($clube as $c)
                             <option value="{{ $c->id }}">{{ $c->nome }}</option>
@@ -55,7 +55,7 @@
                         <label for="feminino">Feminino</label><br>
                         
                         <label for="corProduto">Cor</label>
-                        <select name="corProduto" id="corProduto" label="selecione" class="selectpicker">
+                        <select name="corProduto" id="corProduto" label="selecione" class="selectpicker" required>
                             <option value="">Selecione</option>
                             @foreach($cor as $c)
                             <option value="{{ $c->id }}">{{ $c->cor }}</option>
@@ -63,10 +63,10 @@
                         </select>
                         <br>
                         <label for="anoProduto">Ano</label>
-                        <input type="number" min="1900" max="3000"step="1" value="2021" id="anoProduto" name="anoProduto">
+                        <input type="number" min="1900" max="3000"step="1" value="2021" id="anoProduto" name="anoProduto" required>
                         <br>
                         <label for="tamanhoProduto">Tamanho</label>
-                        <select name="tamanhoProduto" id="tamanhoProduto" label="selecione" class="selectpicker">
+                        <select name="tamanhoProduto" id="tamanhoProduto" label="selecione" class="selectpicker" required>
                             <option value="">Selecione</option>
                             @foreach($tamanho as $t)
                             <option value="{{ $t->id }}">{{ $t->tamanho }}</option>
@@ -83,7 +83,7 @@
                         </select>
                         <br>
                         <label for="valorTotal" >Valor Total: </label>
-                        <input type="number" step="0.01" min="0" max="1000" id="valorTotal" name="valorTotal" placeholder="R$139.99">
+                        <input type="number" step="0.01" min="0" max="1000" id="valorTotal" name="valorTotal" placeholder="R$139.99" required>
 
                         <br>
                         <label for="valorSinal">Valor Sinal: </label>

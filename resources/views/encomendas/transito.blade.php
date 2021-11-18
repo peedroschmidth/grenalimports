@@ -35,7 +35,7 @@
                     <td>
                         <a href="/encomendas/editar/{{$e->id}}" class="btn btn-sm btn-primary">Detalhar</a>
                         <a href="/encomendas/apagar/{{$e->id}}" class="btn btn-sm btn-danger">Apagar</a>
-                        <a href="/encomendas/confirmarRecebimento/{{$e->id}}" class="btn btn-sm btn-success">Confirmar Recebimento</a>
+                        <a href="/encomendas/confirmarRecebimento/{{$e->id}}" class="btn btn-sm btn-success">Receber</a>
                     </td>
                 </tr>
     @endforeach                

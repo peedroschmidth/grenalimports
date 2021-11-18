@@ -32,7 +32,7 @@
             <td>{{$v->produto->cor->cor}}</td>
             <td>{{$v->produto->personalizacao}}</td>
             <td>{{$v->produto->clube->nome}}</td>
-            <td>{{$v->valor_sinal}}</td>
+            <td>R$ {{number_format($v->valor_sinal,2,",",".")}}</td>
         </tr>
 @endforeach
         </tbody>
