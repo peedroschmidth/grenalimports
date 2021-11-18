@@ -10,6 +10,10 @@
         $totalRecebido = $totalRecebido + $v->valor_pago;
     }
     $haver = $totalReceber - $totalRecebido;
+    
+    $dIni=date_create($dataIni);
+    $dFim=date_create($dataFim);
+
 ?>
 
 
@@ -27,7 +31,7 @@
     <body>
     <img src="https://i.ibb.co/bKMTnxg/C-pia-de-1623463367144-3.png" alt="Imagem" border="0"><br>
         <h1>Grenal Imports - Relatório de Vendas</h1>
-        <h3>Data: De {{$dataIni}} à {{$dataFim}}</h3>
+        <h3>Data: De {{date_format($dIni,"d/m/Y")}} à {{date_format($dFim,"d/m/Y")}}</h3>
         
         <h5>Total de vendas: {{$total}}</h5>
         <h5>Total a receber: R$ {{number_format($totalReceber,2,",",".")}}</h5>

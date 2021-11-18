@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app', ["current" => "contabilidade"])
 
 @section('body')
@@ -32,6 +34,7 @@
 
 
 @if(count($pag) > 0)
+
         <table class="table table-ordered table-hover" id="minhaTabela">
             <thead>
                 <tr>
@@ -47,6 +50,9 @@
             </thead>
             <tbody>
     @foreach($pag as $p)
+<?php
+    $date = date_create ($p->created_at);
+?>
                 <tr>
                     <td>{{$p->id}}</td>
                     <td>{{$p->descricao}}</td>
@@ -68,7 +74,7 @@
                             -
                         @endempty
                     </td>
-                    <td>{{$p->created_at}}</td>
+                    <td>{{date_format($p->created_at,"d/m/Y")}}</td>
                     <td>
                         <a href="/contabilidade/editar/{{$p->id}}" class="btn btn-sm btn-primary">Detalhar</a>
                         <a href="/contabilidade/apagar/{{$p->id}}" class="btn btn-sm btn-danger">Apagar</a>
@@ -86,6 +92,30 @@
     </div>
 </div>
 
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $('#minhaTabela').DataTable({
+        "oLanguage": {
+            "sLengthMenu": "Mostrar _MENU_ registros por página",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sInfo": "Mostrando _START_ / _END_ de _TOTAL_ registro(s)",
+            "sInfoEmpty": "Mostrando 0 / 0 de 0 registros",
+            "sInfoFiltered": "(filtrado de _MAX_ registros)",
+            "sSearch": "Pesquisar: ",
+            "oPaginate": {
+                "sFirst": "Início",
+                "sPrevious": "Anterior",
+                "sNext": "Próximo",
+                "sLast": "Último"
+            }
+        },
+
+        });
+  });
+  </script>
+  
 @endsection
 
 <script>
