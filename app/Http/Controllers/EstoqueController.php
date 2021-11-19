@@ -53,17 +53,11 @@ class EstoqueController extends Controller
         $venda->valor_sinal = $req['valorSinal'];
         $venda->valor_pago = $req['valorSinal'];
 
-        if($req['valorSinal']==$req['valorTotal']){
-            $venda->status = "F";
-        }
-        else{
-            $venda->status = "P";
-        }
         $venda->save();
 
         $pag =  new Pagamento();
         $pag->venda_id = $venda->id;
-        $pag->descricao = "Estoque - Venda";
+        $pag->descricao = "Venda - Estoque";
         $pag->tipo = "E";
         $pag->valor = $venda->valor_pago;
         $pag->save();
