@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Liga;
+use DB;
 
 class LigaController extends Controller
 {
@@ -109,6 +110,13 @@ class LigaController extends Controller
     public function destroy($id)
     {
         $liga = Liga::find($id);
+
+        $clube = 0;
+        $clube = DB::select('select count(*) from clubes where liga_id = ?', [$id]);
+
+        if ($clube>0){
+            return redirect()->back()->with('alert', 'Impossível de deletar, possuí clubes relacionadas!');
+        }
         if (isset($liga)){
             $liga->delete();
         }

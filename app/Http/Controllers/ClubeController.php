@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clube;
 use App\Models\Liga;
-use App\Models\Produto;
+use DB;
 
 class ClubeController extends Controller
 {
@@ -43,6 +43,7 @@ class ClubeController extends Controller
      */
     public function store(Request $request)
     {
+
         $clube = new Clube();
         $clube->nome = $request->input('nomeClube');
         $clube->liga_id = $request->input('ligaClube');
@@ -115,14 +116,15 @@ class ClubeController extends Controller
      */
     public function destroy($id)
     {
-        $clube = Clube::find($id);
-        $prod = Produto::where('clube_id', [$id])->get();
-      
-        if(isset($prod)){
-            echo "<script type='javascript'>alert('Impossível apagar, possuí produtos relacionados à este clube!');</script>";
+        $prod = 0;
+        $prod = DB::select('select count(*) from produtos where clube_id = ?', [$id]);
+
+        if ($prod>0){
+            return redirect()->back()->with('alert', 'Impossível de deletar, possuí produtos relacionadas!');
         }
 
-        else if (isset($clube)){
+        $clube = Clube::find($id);
+        if (isset($clube)){
             $clube->delete();
         }
         return redirect('/clubes');

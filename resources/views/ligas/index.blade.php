@@ -1,7 +1,11 @@
 @extends('layouts.app', ['current' => "administrativo"])
 
 @section('body')
-
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
 <h1>Página de Ligas</h1>
 <div class="card border">
     <div class="card-body">

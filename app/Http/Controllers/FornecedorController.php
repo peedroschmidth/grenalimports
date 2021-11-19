@@ -112,6 +112,13 @@ class FornecedorController extends Controller
      */
     public function destroy($id)
     {
+        $enc = 0;
+        $enc = DB::select('select count(*) from encomendas where fornecedor_id = ?', [$id]);
+
+        if ($enc>0){
+            return redirect()->back()->with('alert', 'Impossível de deletar, possuí encomendas relacionadas!');
+        }
+
         $fornecedor = Fornecedor::find($id);
         if (isset($fornecedor)){
             $fornecedor->delete();
