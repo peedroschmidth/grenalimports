@@ -19,7 +19,7 @@ class CreatePagamentosTable extends Migration
             $table->double('valor');
             $table->string('tipo');
             $table->integer('venda_id')->unsigned()->nullable()->default(NULL);
-            $table->foreign('venda_id')->references('id')->on('vendas');
+            $table->foreign('venda_id')->references('id')->on('vendas')->onDelete('cascade');;
             $table->integer('encomenda_id')->unsigned()->nullable()->default(NULL);
             $table->foreign('encomenda_id')->default()->references('id')->on('encomendas');
             $table->timestamps();

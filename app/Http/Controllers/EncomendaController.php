@@ -213,7 +213,14 @@ class EncomendaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {        
+        
+        $pag = 0;
+        $pag = DB::select('select count(*) from pagamentos where encomenda_id = ?', [$id]);
+
+        if ($pag>0){
+            return redirect()->back()->with('alert', 'Impossível de deletar!');
+        }
         $encomenda = Encomenda::find($id);
 
             DB::table('vendas')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
 use PDF;
+use DB;
 
 class ClienteController extends Controller
 {
@@ -117,11 +118,19 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        $cliente = Cliente::find($id);
-        if (isset($cliente)){
-            $cliente->delete();
+        $vendas = 0;
+        $vendas = DB::select('select count(*) from vendas where cliente_id = ?', [$id]);
+
+        if ($vendas>0){
+            return redirect()->back()->with('alert', 'Impossível de deletar, cliente possuí vendas relacionadas!');
         }
-        return redirect('/clientes');
+        else{
+            $cliente = Cliente::find($id);
+            if (isset($cliente)){
+                $cliente->delete();
+            }
+            return redirect('/clientes');
+        }
     }
 
 

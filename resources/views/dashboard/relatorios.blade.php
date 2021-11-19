@@ -1,6 +1,10 @@
 @extends('layouts.app', ['current' => "dashboard"])
 
 @section('body')
+<?php dd($saidas); ?>;
+
+<?php dd($entradas); ?>;
+<?php dd($meses); ?>;
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -8,20 +12,24 @@
 
 <script>
 const ctx = document.getElementById('myChart').getContext('2d');
+const s = <?php echo $saidas; ?>;
+const e = <?php echo $entradas; ?>;
+const m = <?php echo $meses; ?>;
+
 const myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [$meses],
+        labels: m,
 		datasets: [{
     		label: 'Entradas',
-    		data: [$entradas],
+    		data: e,
     		fill: false,
     		borderColor: 'rgb(75, 192, 192)',
     		tension: 0.1
   		},
 		  {
     		label: 'Saídas',
-    		data: [$saidas],
+    		data: s,
     		fill: false,
     		borderColor: 'rgb(84, 8, 100)',
     		tension: 0.1

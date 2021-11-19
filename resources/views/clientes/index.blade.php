@@ -1,6 +1,14 @@
 @extends('layouts.app', ['current' => "clientes"])
 
+
 @section('body')
+
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
+
 
 <h1>Página de Clientes</h1>
 <div class="card border">

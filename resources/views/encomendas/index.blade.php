@@ -2,6 +2,11 @@
 
 @section('body')
 
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
 
 <h1>Página de Encomendas - Todas</h1>
 <div class="card border">

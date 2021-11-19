@@ -1,7 +1,11 @@
 @extends('layouts.app', ["current" => "encomendas"])
 
 @section('body')
-
+@if (session('alert'))
+    <div class="alert alert-danger">
+        {{ session('alert') }}
+    </div>
+@endif
 
 <h1>Página de Encomendas - Recebidas</h1>
 <div class="card border">
