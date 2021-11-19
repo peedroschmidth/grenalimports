@@ -10,6 +10,7 @@ use App\Models\Venda;
 use App\Models\Cor;
 use App\Models\Descricao;
 use App\Models\Tamanho;
+use App\Models\Pagamento;
 use DB;
 
 class EstoqueController extends Controller

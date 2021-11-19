@@ -169,8 +169,6 @@ class VendaController extends Controller
         $gen = Request()->get('generoProduto');
         $est = $request->input('estoque');
 
-
-
         $venda = Venda::find($id);
         $produto = Produto::find($venda->produto->id);
         
