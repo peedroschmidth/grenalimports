@@ -17,8 +17,9 @@ echo "<form action='/encomendas' method='POST'>".
     $idendereco = $req['enderecoEncomenda'];
     $valorPedido = $req['valorPedido'];
     $codigoEncomenda = $req['codigoEncomenda'];
-    $fornecedor = $req['fornecedorEncomenda'];
-    
+    $forn = $req['fornecedorEncomenda'];
+    $fornecedor = DB::select('select nome from fornecedors where id= ?', [$forn]);
+ 
     echo "<table class='table table-ordered table-hover' style='border:1px solid black'>".
     "<thead>".
         "<tr>".
@@ -81,11 +82,11 @@ echo "</table></div>";
 <table class="table table-ordered align-center">
 <tr>
     <td>Fornecedor: </td>
-    <td><input type="checkbox" style="display:none;" id ="fornecedorEncomenda" name="fornecedorEncomenda" value="{{$fornecedor}}" checked>{{$fornecedor}}</input></td>
+    <td><input type="checkbox" style="display:none;" id ="fornecedorEncomenda" name="fornecedorEncomenda" value="{{$forn}}" checked>{{$fornecedor[0]->nome}}</input></td>
 </tr>
 <tr>
     <td>Valor do pedido(com desconto): </td> 
-    <td><input type="text" style="display:none;" id="valorEncomenda" name="valorEncomenda" value="{{$valorPedido}}">R$ {{$valorPedido}}</td>
+    <td><input type="text" style="display:none;" id="valorEncomenda" name="valorEncomenda" value="{{$valorPedido}}">R$ {{number_format($valorPedido,2,",",".")}}</td>
     
 </tr>
 <tr>

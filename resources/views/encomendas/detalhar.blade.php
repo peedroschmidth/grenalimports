@@ -71,8 +71,8 @@ echo "<tbody><tr>";
         <td>{{$v->produto->tamanho->tamanho}}</td>
         <td>{{$v->produto->personalizacao}}</td>
         <td>{{$v->produto->clube->nome}}</td>
-        <td>{{$v->valor_sinal}}</td>
-        <td>{{$v->valor_total}}</td>
+        <td>R$ {{number_format($v->valor_sinal,2,",",".")}}</td>
+        <td>R$ {{number_format($v->valor_total,2,",",".")}}</td>
         <td>
             <a href="/vendas/editar/{{$v->id}}" class="btn btn-sm btn-primary">Editar</a>
             <a href="/encomendas/removerItem/{{$v->id}}" class="btn btn-sm btn-danger">Remover</a>
