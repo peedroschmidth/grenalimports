@@ -51,33 +51,27 @@ class EstoqueController extends Controller
         $venda->valor_total = $req['valorTotal'];
         $venda->valor_sinal = $req['valorSinal'];
         $venda->valor_pago = $req['valorSinal'];
-        $venda->save();
 
         if($req['valorSinal']==$req['valorTotal']){
-            //echo "o cara pagou toda a camisa, pedido finalizado!";
-            $venda->cliente_id = $req['clienteProduto'];
-            $venda->valor_total = $req['valorTotal'];
-            $venda->valor_sinal = $req['valorSinal'];
-            $venda->valor_pago = $req['valorSinal'];
             $venda->status = "F";
-            $venda->save();
-            DB::update('update clientes set qtdcompras=qtdcompras+1 where id= ?',[$req['clienteProduto']]);
-            DB::update('update produtos set estoque="0" where id=?',[$id]);
-            $produtos = Produto::where('estoque','=','1')->paginate(10);
-            return view('/estoque.index',compact('produtos'));
         }
         else{
-            $venda->cliente_id = $req['clienteProduto'];
-            $venda->valor_total = $req['valorTotal'];
-            $venda->valor_sinal = $req['valorSinal'];
-            $venda->valor_pago = $req['valorSinal'];
             $venda->status = "P";
-            $venda->save();
-            DB::update('update clientes set qtdcompras=qtdcompras+1 where id= ?',[$req['clienteProduto']]);
-            DB::update('update produtos set estoque="0" where id=?',[$id]);
-            $produtos = Produto::where('estoque','=','1')->paginate(10);
-            return view('/estoque.index',compact('produtos'));
         }
+        $venda->save();
+
+        $pag =  new Pagamento();
+        $pag->venda_id = $venda->id;
+        $pag->descricao = "Estoque - Venda";
+        $pag->tipo = "E";
+        $pag->valor = $venda->valor_pago;
+        $pag->save();
+
+
+        DB::update('update clientes set qtdcompras=qtdcompras+1 where id= ?',[$req['clienteProduto']]);
+        DB::update('update produtos set estoque="0" where id=?', [$venda->produto_id]);
+        $produtos = Produto::where('estoque','=','1')->paginate(10);
+        return view('estoque.index',compact('produtos'));
 
     }
     /**

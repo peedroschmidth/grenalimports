@@ -170,7 +170,6 @@ class VendaController extends Controller
         $est = $request->input('estoque');
 
 
-        $request->validate($regras, $mensagens);
 
         $venda = Venda::find($id);
         $produto = Produto::find($venda->produto->id);
