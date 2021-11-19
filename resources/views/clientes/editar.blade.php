@@ -8,7 +8,7 @@
             @csrf
             <div class="form-group">
             <label for="nomeCliente">Nome do Cliente</label>
-                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Nome" value="{{$cliente->nome}}">
+                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Nome" value="{{$cliente->nome}}" required>
 
                 <label for="apelidoCliente">Apelido</label>
                 <input type="text" class="form-control" name="apelidoCliente" id="apelidoCliente" placeholder="Apelido" value="{{$cliente->apelido}}">
@@ -17,7 +17,7 @@
                 <input type="mail" class="form-control" name="emailCliente" id="emailCliente" placeholder="E-mail" value="{{$cliente->email}}">
 
                 <label for="telefoneCliente">Telefone</label>
-                <input type="text" class="form-control" name="telefoneCliente" id="telefoneCliente" placeholder="Telefone" value="{{$cliente->telefone}}">
+                <input type="text" class="form-control" name="telefoneCliente" id="telefoneCliente" placeholder="Telefone" value="{{$cliente->telefone}}" required>
 
                 <label for="enderecoCliente">Endereço</label>
                 <input type="text" class="form-control" name="enderecoCliente" id="enderecoCliente" placeholder="Rua da Figuera,30" value="{{$cliente->endereco}}">

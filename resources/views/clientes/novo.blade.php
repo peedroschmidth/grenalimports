@@ -14,13 +14,13 @@
                 <input type="text" class="form-control" name="apelidoCliente" id="apelidoCliente" placeholder="Apelido">
 
                 <label for="emailCliente">E-mail</label>
-                <input type="mail" class="form-control" name="emailCliente" id="emailCliente" placeholder="E-mail" required>
+                <input type="mail" class="form-control" name="emailCliente" id="emailCliente" placeholder="E-mail">
 
                 <label for="telefoneCliente">Telefone</label>
                 <input type="text" class="form-control" name="telefoneCliente" id="telefoneCliente" placeholder="Telefone" required>
 
                 <label for="enderecoCliente">Endereço</label>
-                <input type="text" class="form-control" name="enderecoCliente" id="enderecoCliente" placeholder="Rua da Figuera,30" required>
+                <input type="text" class="form-control" name="enderecoCliente" id="enderecoCliente" placeholder="Rua da Figuera,30">
 
                 <label for="cidadeCliente">Cidade</label>
                 <input type="text" class="form-control" name="cidadeCliente" id="cidadeCliente" placeholder="Cidade" required>
