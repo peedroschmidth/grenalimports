@@ -7,10 +7,11 @@ $valorRestante = $venda->valor_total - $venda->valor_pago;
 
     <h3> Informações Pagamento </h3>
     <table class="table table-ordered ">
-        <td><b>Valor Total:</b> R$ {{$venda->valor_total}}</td>
-        <td><b>Valor Sinal:</b>  R$ {{$venda->valor_sinal}}</td>
-        <td><b>Valor Pago:</b>  R$ {{$venda->valor_pago}}</td>
-        <td style="color:red">Valor Restante:  R$ {{$valorRestante}}</td>
+        <td><b>Valor Total:</b> R$ {{number_format($venda->valor_total
+            ,2,",",".")}}</td>
+        <td><b>Valor Sinal:</b>  R$ {{number_format($venda->valor_sinal,2,",",".")}}</td>
+        <td><b>Valor Pago:</b> R$ {{number_format($venda->valor_pago,2,",",".")}}</td>
+        <td style="color:red"><b>Valor Restante:</b>  R$ {{number_format($valorRestante,2,",",".")}}</td>
     </table>
     @if($venda->status=="F")
         <h1></h1>
