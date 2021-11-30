@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{$e->id}}</td>
                     <td>{{$e->fornecedor->nome}}</td>
-                    <td>{{$e->valor_encomenda}}</td>
+                    <td>R$ {{number_format($e->valor_encomenda,2,",",".")}}</td>
                     <td>{{$e->rastreio}}</td>
                     <td>{{$e->codigo_encomenda}}</td>
                     <td>{{$e->status}}</td>

@@ -36,6 +36,7 @@
                     <td>{{$e->codigo_encomenda}}</td>
                     <td>{{$e->status}}</td>
                     <td>{{$e->created_at}}</td>
+                    
                     <td>
                         <a href="/encomendas/editar/{{$e->id}}" class="btn btn-sm btn-primary">Detalhar</a>
                         <a href="/encomendas/apagar/{{$e->id}}" class="btn btn-sm btn-danger">Apagar</a>
