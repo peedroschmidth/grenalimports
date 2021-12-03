@@ -2,13 +2,26 @@
 @extends('layouts.app', ["current" => "estoque"])
 
 @section('body')
-
+<?php
+    $total = DB::table('vendas')
+    ->join('produtos','vendas.produto_id','=','produtos.id')
+    ->where('produtos.estoque','=',1)
+    ->count();
+    $valor = DB::table('vendas')
+    ->join('produtos','vendas.produto_id','=','produtos.id')
+    ->where('produtos.estoque','=',1)
+    ->sum('valor_total');
+?>
 <h1>Página de Estoque</h1>
 <div class="card border">
     <div class="card-body">
     <a href="/vendas/novo" class="btn btn-sm btn-primary" role="button">Novo Produto</a>
 
 @if(count($produtos) > 0)
+    <p>
+        Produtos em estoque: {{$total}} itens <br>
+        Total: R${{number_format($valor,2,",",".")}}
+    </p>
         <table class="table table-ordered table-hover">
             <thead>
                 <tr>
@@ -34,12 +47,12 @@
                         <a href="/estoque/vender/{{$p->id}}" class="btn btn-sm btn-success">Vender</a>
                     </td>
                 </tr>
-    @endforeach                
+    @endforeach
             </tbody>
         </table>
 @else
 <h5> Não há itens em estoque!</h5>
-@endif        
+@endif
     </div>
     <div class="card-footer">
         {{$produtos->links()}}

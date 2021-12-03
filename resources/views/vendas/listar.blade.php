@@ -1,6 +1,6 @@
 <?php
 $fornecedores = DB::select('select * from fornecedors');
-        
+
 $clientes = DB::table('clientes')
 ->join('vendas','vendas.cliente_id','=','clientes.id')
 ->where('vendas.status','=', 'A')
@@ -30,7 +30,7 @@ $clientes = DB::table('clientes')
         <tbody>
 @foreach($vendas as $v)
         <tr>
-            <td><input type="checkbox" value="{{$v->valor_total}}" id="{{$v->id}}" name="{{$v->id}}" class="valores" ></input></td> 
+            <td><input type="checkbox" value="{{$v->valor_total}}" id="{{$v->id}}" name="{{$v->id}}" class="valores" ></input></td>
             <td>{{$v->cliente->nome}}</td>
             <td>{{$v->produto->descricao->descricao}}</td>
             <td>{{$v->produto->tamanho->tamanho}}</td>
@@ -47,11 +47,11 @@ $clientes = DB::table('clientes')
         <td> Fornecedor: </td>
         <td>
             <select name="fornecedorEncomenda" label="Selecione" id="fornecedorEncomenda">
-                <option value="">Selecione um fornecedor</option>  
+                <option value="">Selecione um fornecedor</option>
                 @foreach($fornecedores as $f)
                 <option value="{{$f->id}}">{{$f->nome}}</option>
                 @endforeach
-            </select> 
+            </select>
         </td>
         <td> Endereço: </td>
         <td>
@@ -60,19 +60,19 @@ $clientes = DB::table('clientes')
                 @foreach($vendas as $v)
                 <option value="{{$v->id}}">{{$v->cliente->nome}}</option>
                 @endforeach
-            </select> 
+            </select>
         </td>
     </tr>
     <tr>
         <td>Valor do pedido: </td>
         <td>
-            <input type="number" step="0.01" min="0" max="1000" id="valorPedido" name="valorPedido">    
+            <input type="number" step="0.01" min="0" max="1000" id="valorPedido" name="valorPedido">
         </td>
         <td>Valor projetado: </td>
         <td><input type="text" id="resultado" value="0" name="valorProjetado" readonly></td>
     </tr>
     <tr>
-      <td>Código da encomenda: </td>
+      <td>Código da encomenda: <b>R$: </b></td>
       <td><input type="text" id="codigoEncomenda" name="codigoEncomenda"></td>
       <td><button type="submit" class="btn btn-sm btn-primary" role="button">Encomendar</button></td>
     </tr>
