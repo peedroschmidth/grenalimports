@@ -68,11 +68,11 @@ $clientes = DB::table('clientes')
         <td>
             <input type="number" step="0.01" min="0" max="1000" id="valorPedido" name="valorPedido">
         </td>
-        <td>Valor projetado: </td>
+        <td>Valor projetado: <b>R$: </b></td>
         <td><input type="text" id="resultado" value="0" name="valorProjetado" readonly></td>
     </tr>
     <tr>
-      <td>Código da encomenda: <b>R$: </b></td>
+      <td>Código da encomenda: </td>
       <td><input type="text" id="codigoEncomenda" name="codigoEncomenda"></td>
       <td><button type="submit" class="btn btn-sm btn-primary" role="button">Encomendar</button></td>
     </tr>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['current' => "administrativo"])
+@extends('layouts.app', ['current' => "painel"])
 
 @section('body')
 @if (session('alert'))
@@ -30,11 +30,11 @@
                         <a href="/ligas/apagar/{{$l->id}}" class="btn btn-sm btn-danger">Apagar</a>
                     </td>
                 </tr>
-    @endforeach                
+    @endforeach
             </tbody>
         </table>
 @else
-    <h4>Você não possuí ligas cadastradas, comece cadastrando uma!</h4> 
+    <h4>Você não possuí ligas cadastradas, comece cadastrando uma!</h4>
 @endif
     </div>
     <div class="card-footer">
