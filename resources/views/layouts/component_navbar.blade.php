@@ -30,7 +30,6 @@
         <li @if($current=="contabilidade") class="active" @endif><a href="/contabilidade">Contabilidade</a></li>
         <li @if($current=="clientes") class="active" @endif><a href="/clientes">Clientes</a></li>
         <li @if($current=="fornecedores") class="active" @endif><a href="/fornecedores">Fornecedores</a></li>
-        <li @if($current=="dashboard") class="active" @endif><a href="/dashboard">Dashboard</a></li>
         <li @if($current=="painel") class="active" @endif class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Painel</span> <span class="caret"></span></a>
             <ul class="dropdown-menu">
