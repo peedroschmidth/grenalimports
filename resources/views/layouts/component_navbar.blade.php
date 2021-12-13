@@ -32,10 +32,10 @@
             Encomendas
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="/encomendas/novo">Nova Venda</a></li>
+            <li><a class="dropdown-item" href="/encomendas/novo">Nova Encomenda</a></li>
             <li><a class="dropdown-item" href="/encomendas">Todas</a></li>
-            <li><a class="dropdown-item" href="/encomendas/aguardando">Em Aberto</a></li>
-            <li><a class="dropdown-item" href="/encomendas/transito">Pendentes</a></li>
+            <li><a class="dropdown-item" href="/encomendas/aguardando">Aguardando</a></li>
+            <li><a class="dropdown-item" href="/encomendas/transito">Em Trânsito</a></li>
             <li><a class="dropdown-item" href="/encomendas/recebidas">Finalizadas</a></li>
           </ul>
         </li>

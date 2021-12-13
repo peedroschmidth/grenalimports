@@ -19,8 +19,8 @@
 
 @if(count($produtos) > 0)
     <p>
-        Produtos em estoque: {{$total}} itens <br>
-        Total: R${{number_format($valor,2,",",".")}}
+        <b>Produtos em estoque:</b> {{$total}} itens <br>
+        <b>Total:</b> R${{number_format($valor,2,",",".")}}
     </p>
         <table class="table table-ordered table-hover">
             <thead>

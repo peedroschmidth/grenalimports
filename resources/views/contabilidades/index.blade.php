@@ -59,7 +59,7 @@
                     <td>R$ {{number_format($p->valor,2,",",".")}}</td>
                     <td @if ($p->tipo=="E") class="circulo" @endif class="circulo2" > {{$p->tipo}}</td>
                     <td>
-                        @isset($p->venda->cliente->nome) 
+                        @isset($p->venda->cliente->nome)
                             {{$p->venda->cliente->nome}}
                         @endisset
                         @empty($p->venda->cliente->nome)
@@ -67,7 +67,7 @@
                         @endempty
                     </td>
                     <td>
-                        @isset($p->encomenda_id) 
+                        @isset($p->encomenda_id)
                             {{$p->encomenda->fornecedor->nome}}
                         @endisset
                         @empty($p->encomenda_id)
@@ -76,16 +76,15 @@
                     </td>
                     <td>{{date_format($p->created_at,"d/m/Y")}}</td>
                     <td>
-                        <a href="/contabilidade/editar/{{$p->id}}" class="btn btn-sm btn-primary">Detalhar</a>
                         <a href="/contabilidade/apagar/{{$p->id}}" class="btn btn-sm btn-danger">Apagar</a>
                     </td>
                 </tr>
-    @endforeach                
+    @endforeach
             </tbody>
         </table>
 @else
 <h4> Você não possuí contabilidades!</h4>
-@endif   
+@endif
     </div>
     <div class="card-footer">
         {{$pag->links()}}
@@ -115,7 +114,7 @@
         });
   });
   </script>
-  
+
 @endsection
 
 <script>

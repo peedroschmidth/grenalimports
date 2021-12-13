@@ -6,11 +6,11 @@
     <td><a href="/clientes" class="btn btn-primary">Cadastrar Cliente</a></td>
     <td><a href="/vendas/novo" class="btn btn-primary">Realizar Venda</a></td>
     <td><a href="/clubes" class="btn btn-primary">Cadastrar Clubes</a></td>
-    <td><a href="/dashboard" class="btn btn-primary">Dashboard</a></td>
+    <td><a href="/contabilidade" class="btn btn-primary">Contabilidade</a></td>
 
-</table>    
+</table>
         <?php
-            $vendas_mes = DB::table('vendas')->where('created_at','>',date('Y-m'))->count(); 
+            $vendas_mes = DB::table('vendas')->where('created_at','>',date('Y-m'))->count();
             $vendas_aberto = DB::table('vendas')->where('status','A')->count();
         ?>
         <h4>Total de vendas este mês: {{$vendas_mes}} </h4>
