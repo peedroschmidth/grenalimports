@@ -1,4 +1,4 @@
-@extends('layouts.app', ["current" => "administrativo"])
+@extends('layouts.app', ["current" => "painel"])
 
 @section('body')
 
@@ -10,9 +10,9 @@
             <div class="form-group">
 
                 <label for="nomeClube">Nome do Clube</label>
-                <input type="text" class="form-control" name="nomeClube" 
+                <input type="text" class="form-control" name="nomeClube"
                        id="nomeClube" placeholder="Clube" required>
-                    
+
                 <label for="ligaClube">Liga do Clube</label>
                 <select name="ligaClube" label="Selecione" id="ligaClube" required>
                 <option value="">Selecione uma Liga</option>
