@@ -1,18 +1,18 @@
 @extends('layouts.app', ["current" => "painel"])
 
 @section('body')
-<h1>Editar Liga</h1>
+<h1>Nova Descrição</h1>
 <div class="card border">
     <div class="card-body">
-        <form action="/ligas/{{$liga->id}}" method="POST">
+        <form action="/descricao" method="POST">
             @csrf
             <div class="form-group">
-                <label for="nomeLiga">Nome da Liga</label>
-                <input type="text" class="form-control" name="nomeLiga"
-                       id="nomeLiga" placeholder="Liga" value="{{$liga->nomeLiga}}">
+                <label for="descricao">Descrição</label>
+                <input type="text" class="form-control" name="descricao"
+                       id="descricao" placeholder="Descrição" required>
             </div>
             <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-            <a class="btn btn-danger btn-sm" href="/ligas">Cancelar</a>
+            <a class="btn btn-danger btn-sm" href="/descricao">Cancelar</a>
         </form>
     </div>
 </div>

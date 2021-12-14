@@ -10,7 +10,7 @@
         $totalRecebido = $totalRecebido + $v->valor_pago;
     }
     $haver = $totalReceber - $totalRecebido;
-    
+
     $dIni=date_create($dataIni);
     $dFim=date_create($dataFim);
 
@@ -30,15 +30,16 @@
     </style>
     <body>
     <img src="https://i.ibb.co/bKMTnxg/C-pia-de-1623463367144-3.png" alt="Imagem" border="0"><br>
+
         <h1>Grenal Imports - Relatório de Vendas</h1>
         <h3>Data: De {{date_format($dIni,"d/m/Y")}} à {{date_format($dFim,"d/m/Y")}}</h3>
-        
+
         <h5>Total de vendas: {{$total}}</h5>
         <h5>Total a receber: R$ {{number_format($totalReceber,2,",",".")}}</h5>
         <h5>Total recebido: R$ {{number_format($totalRecebido,2,",",".")}}</h5>
         <h5>Total em haver: R$ {{number_format($haver,2,",",".")}}</h5>
 
-        
+
         @foreach($vendas as $v)
 
 
@@ -51,7 +52,7 @@
         <thead>
             <tr width="100%" ><th><h4>Cliente: </th><th>{{$cliente[0]->nome}}</h4></th></tr>
                 <tr align='center' style="align:center">
-                   
+
                     <th>Clube</th>
                     <th>Personalização</th>
                     <th>Descrição</th>
@@ -59,12 +60,12 @@
                     <th>Tamanho</th>
                     <th>Data Venda</th>
                 </tr>
-                
+
             </thead>
-            
+
             <tbody>
                 <tr align="center" width="100%">
-                   
+
                     <?php
                         $produto = DB::select('select * from vendas v where v.id = ?', [$v->id]);
                         //dd($produto);
@@ -79,20 +80,20 @@
 
 
                         }
-                        echo "<td>".$clube[0]->nome."</td>";  
+                        echo "<td>".$clube[0]->nome."</td>";
                         echo "<td>".$prod[0]->personalizacao."</td>";
-                        echo "<td>".$descricao[0]->descricao."</td>";    
+                        echo "<td>".$descricao[0]->descricao."</td>";
                         echo "<td>".$cor[0]->cor."</td>";
-                        echo "<td>".$tamanho[0]->tamanho."</td>"; 
-                        $date=date_create($v->created_at);  
+                        echo "<td>".$tamanho[0]->tamanho."</td>";
+                        $date=date_create($v->created_at);
                         echo "<td>".date_format($date,"d/m/Y")."</td>";
 
                     ?>
                 </tr>
 
             </tbody>
-            
-                       
+
+
             <thead>
                 <tr>
                     <th>Valor Pago:</th> <th>R$ {{number_format($v->valor_pago,2,",",".")}} </th>
@@ -119,8 +120,8 @@
             </table>
             <br>
             @endforeach
-            
-            
-        
+
+
+
     </body>
 </html>

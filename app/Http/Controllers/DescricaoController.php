@@ -1,26 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Models\Liga;
+use App\Models\Descricao;
 use DB;
 
-class LigaController extends Controller
+class DescricaoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $ligas = Liga::paginate(10);
-        return view('ligas.index', compact('ligas'));
+        $descricao = Descricao::paginate(10);
+        return view('descricao.index', compact('descricao'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +32,8 @@ class LigaController extends Controller
      */
     public function create()
     {
-        return view('ligas.novo');
+        return view('descricao.novo');
+
     }
 
     /**
@@ -41,18 +45,18 @@ class LigaController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            'nomeLiga'  => 'unique:ligas',
+            'descricao'  => 'unique:descricaos',
         ];
         $mensagens = [
-            'unique' => 'Já existe esta liga cadastrada.'
+            'unique' => 'Já existe esta descrição cadastrada.'
         ];
 
         $request->validate($regras, $mensagens);
 
-        $liga = new Liga();
-        $liga->nomeLiga = $request->input('nomeLiga');
-        $liga->save();
-        return redirect('/ligas');
+        $descricao = new Descricao();
+        $descricao->descricao = $request->input('descricao');
+        $descricao->save();
+        return redirect('/descricao');
     }
 
     /**
@@ -74,11 +78,12 @@ class LigaController extends Controller
      */
     public function edit($id)
     {
-        $liga = Liga::find($id);
-        if(isset($liga)){
-            return view('ligas.editar', compact('liga'));
+        $descricao = Descricao::find($id);
+
+        if(isset($descricao)){
+            return view('descricao.editar', compact('descricao'));
         }
-        return redirect('/ligas');
+        return redirect('/descricao');
     }
 
     /**
@@ -90,15 +95,13 @@ class LigaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $descricao = Descricao::find($id);
 
-
-        $liga = Liga::find($id);
-
-        if(isset($liga)){
-            $liga->nomeLiga = $request->input('nomeLiga');
-            $liga->save();
+        if(isset($descricao)){
+            $descricao->descricao = $request->input('descricao');
+            $descricao->save();
         }
-        return redirect('/ligas');
+        return redirect('/descricao');
     }
 
     /**
@@ -109,17 +112,18 @@ class LigaController extends Controller
      */
     public function destroy($id)
     {
-        $liga = Liga::find($id);
+        $descricao = Descricao::find($id);
 
-        $clube = 0;
-        $clube = DB::select('select count(*) from clubes where liga_id = ?', [$id]);
+        $produtos = 0;
+        $produtos = DB::select('select count(*) from produtos where cor_id = ?', [$id]);
 
-        if ($clube>0){
-            return redirect()->back()->with('alert', 'Impossível de deletar, possuí clubes relacionadas!');
+
+        if ($produtos>=1){
+            return redirect()->back()->with('alert', 'Impossível de deletar, possuí produtos relacionados!');
         }
-        if (isset($liga)){
-            $liga->delete();
+        if (isset($tamanho)){
+            $tamanho->delete();
         }
-        return redirect('/ligas');
+        return redirect('/descricao');
     }
 }

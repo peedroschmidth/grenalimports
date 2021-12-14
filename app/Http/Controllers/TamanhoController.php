@@ -1,25 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Models\Liga;
+use App\Models\Tamanho;
 use DB;
 
-class LigaController extends Controller
+class TamanhoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $ligas = Liga::paginate(10);
-        return view('ligas.index', compact('ligas'));
+        $tamanho = Tamanho::paginate(10);
+        return view('tamanhos.index', compact('tamanho'));
     }
 
     /**
@@ -29,7 +31,7 @@ class LigaController extends Controller
      */
     public function create()
     {
-        return view('ligas.novo');
+        return view('tamanhos.novo');
     }
 
     /**
@@ -41,18 +43,18 @@ class LigaController extends Controller
     public function store(Request $request)
     {
         $regras = [
-            'nomeLiga'  => 'unique:ligas',
+            'tamanho'  => 'unique:tamanhos',
         ];
         $mensagens = [
-            'unique' => 'Já existe esta liga cadastrada.'
+            'unique' => 'Já existe este tamanho cadastrada.'
         ];
 
         $request->validate($regras, $mensagens);
 
-        $liga = new Liga();
-        $liga->nomeLiga = $request->input('nomeLiga');
-        $liga->save();
-        return redirect('/ligas');
+        $tamanho = new Tamanho();
+        $tamanho->tamanho = $request->input('tamanho');
+        $tamanho->save();
+        return redirect('/tamanhos');
     }
 
     /**
@@ -74,11 +76,11 @@ class LigaController extends Controller
      */
     public function edit($id)
     {
-        $liga = Liga::find($id);
-        if(isset($liga)){
-            return view('ligas.editar', compact('liga'));
+        $tamanho = Tamanho::find($id);
+        if(isset($tamanho)){
+            return view('tamanhos.editar', compact('tamanho'));
         }
-        return redirect('/ligas');
+        return redirect('/tamanhos');
     }
 
     /**
@@ -90,15 +92,13 @@ class LigaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tamanho = Tamanho::find($id);
 
-
-        $liga = Liga::find($id);
-
-        if(isset($liga)){
-            $liga->nomeLiga = $request->input('nomeLiga');
-            $liga->save();
+        if(isset($tamanho)){
+            $tamanho->tamanho = $request->input('tamanho');
+            $tamanho->save();
         }
-        return redirect('/ligas');
+        return redirect('/tamanhos');
     }
 
     /**
@@ -109,17 +109,18 @@ class LigaController extends Controller
      */
     public function destroy($id)
     {
-        $liga = Liga::find($id);
+        $tamanho = Tamanho::find($id);
 
-        $clube = 0;
-        $clube = DB::select('select count(*) from clubes where liga_id = ?', [$id]);
+        $produtos = 0;
+        $produtos = DB::select('select count(*) from produtos where tamanho_id = ?', [$id]);
 
-        if ($clube>0){
-            return redirect()->back()->with('alert', 'Impossível de deletar, possuí clubes relacionadas!');
+
+        if ($produtos>=1){
+            return redirect()->back()->with('alert', 'Impossível de deletar, possuí produtos relacionados!');
         }
-        if (isset($liga)){
-            $liga->delete();
+        if (isset($tamanho)){
+            $tamanho->delete();
         }
-        return redirect('/ligas');
+        return redirect('/tamanhos');
     }
 }

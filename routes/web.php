@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LigaController; 
-use App\Http\Controllers\ClubeController; 
-use App\Http\Controllers\FornecedorController; 
+use App\Http\Controllers\LigaController;
+use App\Http\Controllers\ClubeController;
+use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VendaController;
 use App\Http\Controllers\IndexController;
@@ -13,7 +13,33 @@ use App\Http\Controllers\ContabilidadeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CorController;
+use App\Http\Controllers\DescricaoController;
+use App\Http\Controllers\TamanhoController;
 
+//Cores
+Route::get('/cores',[CorController::class,'index']);
+Route::get('/cores/apagar/{id}', [CorController::class, 'destroy']);
+Route::get('/cores/editar/{id}', [CorController::class, 'edit']);
+Route::post('/cores/{id}', [CorController::class, 'update']);
+Route::get('/cores/novo', [CorController::class, 'create']);
+Route::post('/cores', [CorController::class, 'store']);
+
+//Tamanhos
+Route::get('/tamanhos',[TamanhoController::class,'index']);
+Route::get('/tamanhos/apagar/{id}', [TamanhoController::class, 'destroy']);
+Route::get('/tamanhos/editar/{id}', [TamanhoController::class, 'edit']);
+Route::post('/tamanhos/{id}', [TamanhoController::class, 'update']);
+Route::get('/tamanhos/novo', [TamanhoController::class, 'create']);
+Route::post('/tamanhos', [TamanhoController::class, 'store']);
+
+//Descricao
+Route::get('/descricao',[DescricaoController::class,'index']);
+Route::get('/descricao/apagar/{id}', [DescricaoController::class, 'destroy']);
+Route::get('/descricao/editar/{id}', [DescricaoController::class, 'edit']);
+Route::post('/descricao/{id}', [DescricaoController::class, 'update']);
+Route::get('/descricao/novo', [DescricaoController::class, 'create']);
+Route::post('/descricao', [DescricaoController::class, 'store']);
 
 //Ligas
 Route::get('/ligas',[LigaController::class,'index']);

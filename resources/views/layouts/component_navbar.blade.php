@@ -59,9 +59,9 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/ligas">Ligas</a></li>
             <li><a class="dropdown-item" href="/clubes">Clubes</a></li>
-            <li><a class="dropdown-item" href="#">Cores</a></li>
-            <li><a class="dropdown-item" href="#">Tamanhos</a></li>
-            <li><a class="dropdown-item" href="#">Descrição</a></li>
+            <li><a class="dropdown-item" href="/cores">Cores</a></li>
+            <li><a class="dropdown-item" href="/tamanhos">Tamanhos</a></li>
+            <li><a class="dropdown-item" href="/descricao">Descrição</a></li>
           </ul>
         </li>
         <li >
