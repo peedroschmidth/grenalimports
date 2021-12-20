@@ -36,7 +36,7 @@
             <li><a class="dropdown-item" href="/encomendas">Todas</a></li>
             <li><a class="dropdown-item" href="/encomendas/aguardando">Aguardando</a></li>
             <li><a class="dropdown-item" href="/encomendas/transito">Em Trânsito</a></li>
-            <li><a class="dropdown-item" href="/encomendas/recebidas">Finalizadas</a></li>
+            <li><a class="dropdown-item" href="/encomendas/recebidas">Recebidas</a></li>
           </ul>
         </li>
         <li class="nav-item" >
